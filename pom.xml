@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.rometools</groupId>
+    <artifactId>rome-mano</artifactId>
+    <name>rome-mano</name>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <url>http://rometools.github.io/rome-mano/</url>
+    <organization>
+        <name>ROME Project</name>
+        <url>https://github.com/rometools/</url>
+    </organization>
+    <issueManagement>
+        <url>https://github.com/rometools/rome-mano/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:rometools/rome-mano.git</connection>
+        <developerConnection>scm:git:git@github.com:rometools/rome-mano.git</developerConnection>
+        <url>https://github.com/rometools/rome-mano/</url>
+    </scm>
+    <ciManagement>
+        <notifiers>
+            <notifier>
+                <configuration>
+                    <address>dev@rome.dev.java.net</address>
+                </configuration>
+            </notifier>
+        </notifiers>
+    </ciManagement>
+    <mailingLists>
+        <mailingList>
+            <name>dev@rome.dev.java.net</name>
+            <subscribe>
+            https://rome.dev.java.net/servlets/ProjectMailingListList
+            </subscribe>
+            <unsubscribe>
+            https://rome.dev.java.net/servlets/ProjectMailingListList
+            </unsubscribe>
+            <archive>
+            https://rome.dev.java.net/servlets/SummarizeList?listName=dev
+            </archive>
+        </mailingList>
+    </mailingLists>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <port>9000</port>
+                    <tempWebappDirectory>${basedir}/target/site/tempdir</tempWebappDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+                <version>1.0-beta-2</version>
+                <configuration>
+                    <scmBranch>gh-pages</scmBranch>
+                    <pubScmUrl>scm:git:git@github.com:rometools/rome-mano.git</pubScmUrl>
+                    <content>${project.build.directory}/site</content>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
